@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_mobile_app_ui/constants.dart';
+import 'package:pizza_mobile_app_ui/screens/screens.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -8,14 +9,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/backgroungOne.jpeg"),
-              fit: BoxFit.cover
-            )
-          ),
-        ),
+        backgroundImage(),
 
         Scaffold(
           backgroundColor: Colors.transparent,
@@ -24,9 +18,9 @@ class WelcomePage extends StatelessWidget {
               Container(
                 height: MediaQuery.of(context).size.height * 0.35,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.25,
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Pizzeria",
                     style: TextStyle(
@@ -44,33 +38,9 @@ class WelcomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: Size(240, 45),
-                          textStyle: TextStyle(fontSize: 18),
-                          backgroundColor: primaryOrangeColor,
-                        ),
-                        onPressed: (){
-                        },
-                        child: const Text(
-                          'Get Started',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        )
-                    ),
+                    loginButton(context: context),
                     const SizedBox(height: 15,),
-                    OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            minimumSize: Size(300, 45),
-                            textStyle: TextStyle(fontSize: 18),
-                            foregroundColor: Colors.black,
-                            side: BorderSide(width: 1, color: primaryOrangeColor)
-                        ),
-                        onPressed: (){
-                        },
-                        child: const Text('Register')
-                    ),
+                    registerButton(context: context),
                   ],
                 ),
               )
@@ -80,6 +50,58 @@ class WelcomePage extends StatelessWidget {
         )
 
       ],
+    );
+  }
+
+  Container backgroundImage() {
+    return Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/backgroungOne.jpeg"),
+            fit: BoxFit.cover
+          )
+        ),
+      );
+  }
+
+  OutlinedButton registerButton({required BuildContext context}) {
+    return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+            minimumSize: Size(300, 45),
+            textStyle: TextStyle(fontSize: 18),
+            foregroundColor: Colors.black,
+            side: BorderSide(width: 1, color: primaryOrangeColor)
+        ),
+        onPressed: (){
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const BottomNavigationPage()), (route) => false);
+
+        },
+        child: const Text(
+          'Register',
+          style: TextStyle(
+              fontWeight: FontWeight.bold
+          ),
+        )
+    );
+  }
+
+  ElevatedButton loginButton({required BuildContext context}) {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size(240, 45),
+          textStyle: TextStyle(fontSize: 18),
+          backgroundColor: primaryOrangeColor,
+        ),
+        onPressed: (){
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const BottomNavigationPage()), (route) => false);
+        },
+        child: const Text(
+          'Login',
+          style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+          ),
+        )
     );
   }
 }
