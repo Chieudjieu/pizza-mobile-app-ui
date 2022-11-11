@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:pizza_mobile_app_ui/screens/home/categories/categoriesScreen.dart';
 import 'package:pizza_mobile_app_ui/screens/home/searchField.dart';
 
 import '../../constants.dart';
+import 'categories/categoriesScreen.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -15,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     var phoneSize = MediaQuery.of(context).size;
@@ -22,6 +21,8 @@ class _HomePageState extends State<HomePage> {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: ListView(
+        physics: const NeverScrollableScrollPhysics(),
+
         children: [
           const Text(
             "Good Morning Jane !!",
@@ -55,9 +56,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
 
+          const CategoriesScreen()
 
-          const CategoriesScreen(),
-          
 
         ],
 
@@ -65,3 +65,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+

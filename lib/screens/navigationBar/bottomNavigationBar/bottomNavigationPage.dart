@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza_mobile_app_ui/constants.dart';
 import 'package:pizza_mobile_app_ui/screens/screens.dart';
@@ -111,8 +112,8 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
         child: CircleAvatar(
           // backgroundColor: const Color(0xff7c94b6),
           radius: 28.0,
-          foregroundImage: NetworkImage(
-            'https://static8.depositphotos.com/1192060/856/i/600/depositphotos_8569487-stock-photo-teenager-posing.jpg',
+          foregroundImage: AssetImage(
+            'assets/images/profile_photo.webp',
           ),
           backgroundImage: AssetImage(
             'assets/images/default_person.png',
@@ -159,12 +160,12 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                 },
                 icon: _currentIndex == 1 ?
                 const Icon(
-                  Icons.heart_broken,
+                  CupertinoIcons.heart_fill,
                   color: primaryBlackColor,
                   size: 35,
                 )
                     : const Icon(
-                  Icons.heart_broken_outlined,
+                  CupertinoIcons.heart,
                   color: primaryBlackColor,
                   size: 35,
                 ),
