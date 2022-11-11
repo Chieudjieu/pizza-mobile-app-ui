@@ -33,6 +33,54 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
           }
         },
         child: Scaffold(
+          backgroundColor: primaryWhiteColor,
+          drawer: const Drawer(
+            child: Center(child: Text('Drawer')),
+          ),
+          appBar: AppBar(
+            backgroundColor: primaryWhiteColor,
+            elevation: 0,
+            titleSpacing: 0,
+            automaticallyImplyLeading: false,
+
+
+            // automaticallyImplyLeading: false,
+            toolbarHeight:80,
+            leadingWidth:80,
+            leading: Builder(
+              builder: (context) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: primaryPaleColor,
+                      borderRadius: BorderRadius.circular(15)
+                  ),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.menu,
+                      size: 30,
+                      color: primaryOrangeColor,
+                    ),
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                  ),
+                ),
+              ),
+            ),
+            actions: [
+              IconButton(
+                icon: const Icon(
+                  Icons.shopping_bag_outlined,
+                  size: 30,
+                  color: primaryOrangeColor,
+                ),
+                onPressed: (){},
+              ),
+
+              circularProfilePhoto(),
+
+            ],
+          ),
+          
           body: _screens[_currentIndex],
 
           floatingActionButton: FloatingActionButton(
@@ -51,6 +99,26 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
           bottomNavigationBar: buildBottomAppBar(),
         )
+    );
+  }
+
+  Padding circularProfilePhoto() {
+    return const Padding(
+      padding: EdgeInsets.only(right: 10.0),
+      child: CircleAvatar(
+        radius: 30,
+        backgroundColor: primaryGreyColor,
+        child: CircleAvatar(
+          // backgroundColor: const Color(0xff7c94b6),
+          radius: 28.0,
+          foregroundImage: NetworkImage(
+            'https://static8.depositphotos.com/1192060/856/i/600/depositphotos_8569487-stock-photo-teenager-posing.jpg',
+          ),
+          backgroundImage: AssetImage(
+            'assets/images/default_person.png',
+          ),
+        ),
+      ),
     );
   }
 
@@ -110,12 +178,12 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                 },
                 icon: _currentIndex == 2 ?
                 const Icon(
-                  Icons.safety_divider,
+                  Icons.verified,
                   color: primaryBlackColor,
                   size: 35,
                 )
                     : const Icon(
-                  Icons.safety_divider_outlined,
+                  Icons.verified_outlined,
                   color: primaryBlackColor,
                   size: 35,
                 ),
