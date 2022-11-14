@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pizza_mobile_app_ui/screens/home/searchField.dart';
 
 import '../../constants.dart';
-import 'categories/categoriesScreen.dart';
+import '../categories/categoriesScreen.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -43,10 +43,10 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(15)
                   ),
                   child: IconButton(
-                    icon: const Icon(
-                      Icons.tune_outlined,
-                      size: 30,
+                    icon: const ImageIcon(
+                      AssetImage("assets/logo/settings.png"),
                       color: primaryOrangeColor,
+                      size: 30,
                     ),
                     onPressed: (){},
                   ),

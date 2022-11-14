@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_mobile_app_ui/screens/home/categories/pizzaDetailPage.dart';
+import 'package:pizza_mobile_app_ui/constants.dart';
+import 'package:pizza_mobile_app_ui/models/pizzaDetailModel.dart';
 
-import '../../../constants.dart';
+import 'PizzaDetail/pizzaDetailPage.dart';
+
 
 class PizzaCard extends StatelessWidget {
   const PizzaCard({
-    Key? key,
-    required this.name,
-    required this.image,
-    required this.price,
-    required this.index,
+    Key? key, required this.pizzaDetails,
+
   }) : super(key: key);
 
-  final String name;
-  final String image;
-  final String price;
-  final int index;
+  final PizzaDetailModel pizzaDetails;
 
 
 
@@ -23,7 +19,7 @@ class PizzaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PizzaDetailPage(index: index)));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PizzaDetailPage(pizzaDetails: pizzaDetails)));
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
@@ -48,20 +44,32 @@ class PizzaCard extends StatelessWidget {
             Container(
                 height: 100,
                 padding: EdgeInsets.all(10),
-                child: Image(
-                  image: AssetImage(
-                    image,
+                child: Image.network(
+                  pizzaDetails.image,
 
-                  ),
                 )
             ),
-            Text(name),
+            Text(
+              pizzaDetails.name,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: primaryBlackColor,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(price),
+                  Text(
+                    pizzaDetails.price,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: primaryOrangeColor,
+                    ),
+                  ),
                   ElevatedButton(
                     onPressed: () {},
                     child: Icon(Icons.add, color: Colors.white, size: 25,),

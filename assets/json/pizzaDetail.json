@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Farmhouse",
+    "price": "₹220",
+    "description": "Bell pepper, Tomato, Capsicum, Mushroom, Black Olives",
+    "image": "https://e7.pngegg.com/pngimages/431/519/png-clipart-pizza-hut-sushi-pizza-delivery-pizza-thumbnail.png"
+  },
+  {
+    "id": 2,
+    "name": "Marghreita",
+    "price": "₹170",
+    "description": "pizza with tomatos, New York-style pizza Italian cuisine Margherita,",
+    "image": "https://e7.pngegg.com/pngimages/375/121/png-clipart-pizza-with-tomatos-new-york-style-pizza-italian-cuisine-take-out-pizza-margherita-pizza-food-recipe-thumbnail.png"
+  },
+  {
+    "id": 3,
+    "name": "Tomato",
+    "price": "₹155",
+    "description": "Pizza Hut Italian cuisine, pizza pie",
+    "image": "https://e7.pngegg.com/pngimages/100/921/png-clipart-pizza-hut-italian-cuisine-take-out-restaurant-pizza-pizza-pie-food-pizza-logo-thumbnail.png"
+  },
+  {
+    "id": 4,
+    "name": "Onion",
+    "price": "₹200",
+    "description": "pizza dish, Hawaiian pizza Ham Pepperoni Meat, beef",
+    "image": "https://e7.pngegg.com/pngimages/658/279/png-clipart-pizza-dish-hawaiian-pizza-ham-pepperoni-meat-pizza-food-beef-thumbnail.png"
+  },
+  {
+    "id": 5,
+    "name": "Double cheese",
+    "price": "₹175",
+    "description": "pizza pie, Pizza cutter Jinli European cuisine Food, Extreme Pizza",
+    "image": "https://e7.pngegg.com/pngimages/514/80/png-clipart-pizza-pie-pizza-cutter-jinli-european-cuisine-food-extreme-pizza-baking-recipe-thumbnail.png"
+  },
+  {
+    "id": 6,
+    "name": "Vegetable",
+    "price": "₹300",
+    "description": "Pizza cutter Fast food Take-out, Pizza, vegetable pizza, food",
+    "image": "https://e7.pngegg.com/pngimages/690/354/png-clipart-pizza-cutter-fast-food-take-out-pizza-vegetable-pizza-food-recipe-thumbnail.png"
+  },
+  {
+    "id": 7,
+    "name": "Kebab",
+    "price": "₹320",
+    "description": "Pizza Take-out Italian cuisine Hamburger Kebab",
+    "image": "https://e7.pngegg.com/pngimages/864/724/png-clipart-pizza-take-out-italian-cuisine-hamburger-kebab-pizza-food-recipe-thumbnail.png"
+  }
+
+]

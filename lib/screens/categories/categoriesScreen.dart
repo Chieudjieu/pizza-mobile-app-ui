@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_mobile_app_ui/constants.dart';
-import 'package:pizza_mobile_app_ui/screens/home/categories/pizaCard.dart';
+import 'package:pizza_mobile_app_ui/models/pizzaDetailModel.dart';
+import 'Pizza/pizaCard.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -24,24 +24,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> with TickerProvider
     "assets/images/buritto.png"
   ];
 
-  final List pizzaName = [
-    "Farmhouse","Marghreita","Tomatos",
-    "Dessert","Onion","Cheese"
-  ];
-
-  final List pizzaImage = [
-    "assets/images/pizzaOne.png", "assets/images/pizzaFour.png","assets/images/pizzaFive.png",
-    "assets/images/pizzaSix.jpeg","assets/images/pizzaOne.png","assets/images/pizzaSix.jpeg"
-  ];
-
-  final List pizzaPrice = [
-    "₹220",
-    "₹170",
-    "₹155",
-    "₹200",
-    "₹225",
-    "₹204"
-  ];
 
   int selectedCategory = 0;
 
@@ -51,7 +33,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> with TickerProvider
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 5);
-    _tabController.addListener(() {
+    _tabController.animation?.addListener(() {
       setState(() {
         selectedCategory = _tabController.index;
       });
@@ -173,20 +155,51 @@ class _CategoriesScreenState extends State<CategoriesScreen> with TickerProvider
                 //height: phoneSize.height * 0.4,
                 width: double.infinity,
 
-                child: GridView.builder(
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount:2,
-                      childAspectRatio: (140.0 / 150.0),
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20
-                  ),
-                  scrollDirection: Axis.vertical,
-                  itemCount: pizzaName.length,
-                  shrinkWrap: true,
+                child: FutureBuilder(
+                    future: DefaultAssetBundle.of(context).loadString("assets/json/pizzaDetail.json"),
+                    builder: (context, response){
+                      switch(response.connectionState) {
+                        case ConnectionState.none:
+                          return Container(
+                            height: 200,
+                            alignment: Alignment.center,
+                            child: CircularProgressIndicator(),
+                          );
+                        case ConnectionState.waiting:
+                          return Container(
+                            height: 200,
+                            alignment: Alignment.center,
+                            child: CircularProgressIndicator(),
+                          );
+                        case ConnectionState.active:
+                        case ConnectionState.done:
+                          if (response.hasData) {
+                            final  pizzaDetailsList = pizzaDetailModelFromJson(response.data.toString());
 
-                  itemBuilder: (context, index){
-                    return PizzaCard(image: pizzaImage[index], name: pizzaName[index], price: pizzaPrice[index],index: index,);
-                  },
+                            return GridView.builder(
+                              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount:2,
+                                  childAspectRatio: (140.0 / 150.0),
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20
+                              ),
+                              scrollDirection: Axis.vertical,
+                              itemCount: pizzaDetailsList.length,
+                              shrinkWrap: true,
+
+                              itemBuilder: (context, index){
+                                return PizzaCard(pizzaDetails: pizzaDetailsList[index],);
+                              },
+                            );
+
+                          }
+                      }
+                      return Container(
+                        height: 200,
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(),
+                      );
+                    }
                 ),
               ),
               Container(

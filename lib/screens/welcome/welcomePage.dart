@@ -57,7 +57,7 @@ class WelcomePage extends StatelessWidget {
     return Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/backgroungOne.jpeg"),
+            image: AssetImage("assets/images/backgroundWelcomePage.jpeg"),
             fit: BoxFit.cover
           )
         ),
@@ -70,6 +70,7 @@ class WelcomePage extends StatelessWidget {
             minimumSize: Size(300, 45),
             textStyle: TextStyle(fontSize: 18),
             foregroundColor: Colors.black,
+            backgroundColor: primaryWhiteColor.withOpacity(0.4),
             side: BorderSide(width: 1, color: primaryOrangeColor)
         ),
         onPressed: (){
@@ -93,7 +94,8 @@ class WelcomePage extends StatelessWidget {
           backgroundColor: primaryOrangeColor,
         ),
         onPressed: (){
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const BottomNavigationPage()), (route) => false);
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BottomNavigationPage()));
+
         },
         child: const Text(
           'Login',
