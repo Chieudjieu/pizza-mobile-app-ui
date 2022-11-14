@@ -17,10 +17,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> with TickerProvider
   ];
 
   final List categoriesImages = [
-    "assets/images/hamburger-with-glass.webp",
+    "assets/images/all_food.png",
     "assets/images/pizza.png",
     "assets/images/burger.webp",
-    "assets/images/dessert.jpeg",
+    "assets/images/cupcake.png",
     "assets/images/buritto.png"
   ];
 
@@ -185,7 +185,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> with TickerProvider
                   shrinkWrap: true,
 
                   itemBuilder: (context, index){
-                    return PizzaCard(image: pizzaImage[index], name: pizzaName[index], price: pizzaPrice[index]);
+                    return PizzaCard(image: pizzaImage[index], name: pizzaName[index], price: pizzaPrice[index],index: index,);
                   },
                 ),
               ),

@@ -48,7 +48,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/burger.webp"
+  image_path: "assets/logo/pizzaLogo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
 
 
@@ -72,22 +72,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/backgroungOne.jpeg
-    - assets/images/backgroundTwo.jpeg
-    - assets/images/default_person.png
-    - assets/images/profile_photo.webp
-    - assets/images/hamburger-with-glass.webp
-    - assets/images/burger.webp
-    - assets/images/buritto.png
-    - assets/images/dessert.jpeg
-    - assets/images/pizza.png
-    - assets/images/pizzaOne.png
-    - assets/images/pizzaTwo.jpeg
-    - assets/images/pizzaThree.jpeg
-    - assets/images/pizzaFour.png
-    - assets/images/pizzaFive.png
-    - assets/images/pizzaSix.jpeg
-    - assets/images/pizzaSeven.png
+    - assets/images/
+    - assets/logo/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

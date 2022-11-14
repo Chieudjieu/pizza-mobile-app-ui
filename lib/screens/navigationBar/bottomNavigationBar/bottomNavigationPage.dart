@@ -14,8 +14,8 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
   final List _screens = [
     HomePage(),
-    Container(),
-    Container()
+    Container(child: Center(child: Text("Page 2"),),),
+    Container(child: Center(child: Text("Page 3"),),)
   ];
 
   int _currentIndex = 0;
@@ -57,10 +57,10 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                       borderRadius: BorderRadius.circular(15)
                   ),
                   child: IconButton(
-                    icon: const Icon(
-                      Icons.menu,
-                      size: 30,
+                    icon: const ImageIcon(
+                      AssetImage("assets/logo/menu.png"),
                       color: primaryOrangeColor,
+                      size: 30,
                     ),
                     onPressed: () => Scaffold.of(context).openDrawer(),
                   ),
@@ -69,10 +69,10 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             ),
             actions: [
               IconButton(
-                icon: const Icon(
-                  Icons.shopping_bag_outlined,
-                  size: 30,
+                icon: const ImageIcon(
+                  AssetImage("assets/logo/shopping-bag.png"),
                   color: primaryOrangeColor,
+                  size: 40,
                 ),
                 onPressed: (){},
               ),
@@ -91,8 +91,10 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             onPressed: (){
 
             },
-            child: const Icon(
-              Icons.message_outlined,
+            child: ImageIcon(
+              AssetImage("assets/logo/chat.png"),
+              size: 25,
+
             ),
           ),
 
@@ -140,14 +142,12 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                     });
                   },
                   icon: _currentIndex == 0 ?
-                  const Icon(
-                    Icons.home_filled,
-                    color: primaryBlackColor,
+                  const ImageIcon(
+                    AssetImage("assets/logo/homepageFull.png"),
                     size: 35,
                   )
-                      : const Icon(
-                    Icons.home_outlined,
-                    color: primaryBlackColor,
+                      : const ImageIcon(
+                    AssetImage("assets/logo/homepage.png"),
                     size: 35,
                   ),
               ),
@@ -159,14 +159,12 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                   });
                 },
                 icon: _currentIndex == 1 ?
-                const Icon(
-                  CupertinoIcons.heart_fill,
-                  color: primaryBlackColor,
+                const ImageIcon(
+                  AssetImage("assets/logo/loveFull.png"),
                   size: 35,
                 )
-                    : const Icon(
-                  CupertinoIcons.heart,
-                  color: primaryBlackColor,
+                    : const ImageIcon(
+                  AssetImage("assets/logo/love.png"),
                   size: 35,
                 ),
               ),
@@ -178,14 +176,12 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                   });
                 },
                 icon: _currentIndex == 2 ?
-                const Icon(
-                  Icons.verified,
-                  color: primaryBlackColor,
+                const ImageIcon(
+                  AssetImage("assets/logo/remiseFull.png"),
                   size: 35,
                 )
-                    : const Icon(
-                  Icons.verified_outlined,
-                  color: primaryBlackColor,
+                    : const ImageIcon(
+                  AssetImage("assets/logo/remise.png"),
                   size: 35,
                 ),
               ),
